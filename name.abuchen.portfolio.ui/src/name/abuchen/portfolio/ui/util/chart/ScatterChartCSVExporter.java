@@ -1,0 +1,64 @@
+package name.abuchen.portfolio.ui.util.chart;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.nio.charset.StandardCharsets;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+
+import org.apache.commons.csv.CSVPrinter;
+import org.eclipse.swt.widgets.Shell;
+
+import name.abuchen.portfolio.ui.Messages;
+import name.abuchen.portfolio.ui.util.AbstractCSVExporter;
+
+public class ScatterChartCSVExporter extends AbstractCSVExporter
+{
+    private final ScatterChart chart;
+
+    private NumberFormat valueFormat = new DecimalFormat("#,##0.00"); //$NON-NLS-1$
+
+    public ScatterChartCSVExporter(ScatterChart viewer)
+    {
+        this.chart = viewer;
+    }
+
+    public void setValueFormat(NumberFormat valueFormat)
+    {
+        this.valueFormat = valueFormat;
+    }
+
+    @Override
+    protected Shell getShell()
+    {
+        return chart.getShell();
+    }
+
+    @Override
+    protected void writeToFile(File file) throws IOException
+    {
+        try (CSVPrinter printer = new CSVPrinter(
+                        new OutputStreamWriter(new FileOutputStream(file), StandardCharsets.UTF_8), STRATEGY))
+        {
+            // write header
+            printer.print(Messages.ColumnDataSeries);
+            printer.print(chart.getAxisSet().getXAxis(0).getTitle().getText());
+            printer.print(chart.getAxisSet().getYAxis(0).getTitle().getText());
+            printer.println();
+
+            // write body
+            var series = chart.getSeriesSet().getSeries();
+            
+            for (var serie : series)
+            {
+                printer.print(serie.getDescription() != null ? serie.getDescription() : serie.getId());
+                printer.print(valueFormat.format(serie.getXSeries()[0]));
+                printer.print(valueFormat.format(serie.getYSeries()[0]));
+                printer.println();
+            }
+        }
+    }
+
+}

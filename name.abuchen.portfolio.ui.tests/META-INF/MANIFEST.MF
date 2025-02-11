@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Portfolio Performance UI Tests
+Bundle-SymbolicName: name.abuchen.portfolio.ui.tests
+Bundle-Version: 0.74.1.qualifier
+Fragment-Host: name.abuchen.portfolio.ui
+Bundle-RequiredExecutionEnvironment: JavaSE-21
+Bundle-Vendor: Andreas Buchen
+Require-Bundle: org.junit,
+ org.hamcrest.core,
+ org.hamcrest.library,
+ org.apache.pdfbox,
+ org.apache.pdfbox.fontbox,
+ org.apache.pdfbox.jempbox,
+ org.apache.servicemix.bundles.xpp3,
+ name.abuchen.portfolio.junit;bundle-version="0.59.6",
+ org.mockito.mockito-core,
+ org.apache.commons.commons-io,
+ org.apache.commons.commons-codec
+Automatic-Module-Name: name.abuchen.portfolio.ui.tests
