@@ -31,8 +31,8 @@ export default function Main() {
                         </p>
                     </div>
                     <div className="flex justify-end">
-                        <a className="myProjects" href='#'>
-                            <img className="myProject_img" src={myProject} />
+                        <a className="myProjects" href='/Projects'>
+                            <img className="myProject_img" src={myProject} alt='img'/>
                             <span className="text-white absolute m-auto">
                                 <ArrowDownwardOutlinedIcon style={{ fontSize: "36px" }} />
                             </span>
