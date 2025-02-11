@@ -5,8 +5,8 @@
     padding: 30px;
     border: 0.8px solid rgb(123, 123, 123);
     border-radius: 30px;
-    margin: 20px;
     color: white;
+
 }
 
 .top_bar {
@@ -14,7 +14,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-
+    margin-bottom: 30px;
 }
 
 .name {
@@ -26,26 +26,32 @@
 
 }
 
-.name .designation {
-    font-size: 18px;
-    height: 80px;
-    width: 100px;
+.top_bar .designation {
+    text-align: right;
+    color: #fff;
+    font-size: 14px;
     font-weight: 400;
 }
 
 .logo {
     width: 250px;
     height: 250px;
-    margin: 30px 20px 30px;
+    margin: 0px auto 20px;
     border-radius: 30px;
 }
-.para_name{
-    font-size: 26px;
+
+.para_name {
+    font-size: 24px;
+    color: #fff;
+    text-align: center;
+    font-weight: 400;
 }
-.para_name span{
+
+.para_name span {
     color: gray;
 }
-.lists{
+
+.lists {
     display: flex;
     color: gray;
     margin-top: 10px;
@@ -53,7 +59,7 @@
     justify-content: center;
 }
 
-.lists li{
+.lists li {
     border: 2px solid gray;
     border-radius: 30px;
     padding: 10px;
@@ -61,23 +67,176 @@
     font-size: 9px;
     transition: border 0.3s, color 0.3s;
 }
-.lists li:hover{
-    color: #28e98c;
-    border-color: #28e98c;
+
+.lists li:hover {
+    color: #0c6;
+    border-color: #0c6;
 
 }
-.buttons{
+
+.buttons {
     width: 275px;
     height: 50px;
-    font-size: 16px;
-    background-color: #28e98c;
-    border: 2px solid #28e98c;
     color: black;
+    background-color: #0c6;
+    border: 2px solid #0c6;
     border-radius: 30px;
-    margin: 20px 0 ;
+    margin: 20px 0;
+    font-size: 16px;
 }
-.buttons:hover{
+
+.buttons:hover {
     background-color: black;
-    color: #28e98c;;
-    border-color: #28e98c;
+    color: #0c6;
+    border-color: #0c6;
+}
+
+.container {
+    width: 770px;
+    margin: 0px 100px 0px 500px;
+    padding-top: 65px;
+}
+
+.myProjects {
+    width: 175px;
+    height: 175px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    border-radius: 50%;
+    border: 1px solid #575757;
+    position: relative;
+    overflow: hidden;
+}
+
+.myProject_img {
+    animation: rotating 6s infinite linear;
+}
+
+@keyframes rotating {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    /* Change cursor to indicate interaction */
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: fit-content;
+    /* Adjust width as needed */
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    right: 160%;
+    /* Position to the left of the icon */
+    top: 50%;
+    /* Center vertically */
+    transform: translateY(-50%);
+    /* Adjust for vertical centering */
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 12px;
+    padding: 0px 15px;
+    display: flex;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    /* Center the arrow vertically */
+    left: 100%;
+    /* Position arrow to the right of tooltip */
+    margin-top: -5px;
+    /* Center the arrow vertically */
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent transparent #555;
+    /* Adjust the arrow's color */
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+
+
+@media screen and (max-width: 767px) {
+    .left_sidebar {
+        width: 100% !important;
+
+    }
+
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.second_section {
+    animation: slideUp 0.6s ease-out forwards;
+}
+
+.about_heading{
+    font-size: 48px;
+    line-height: 60px;
+    color: #fff;
+    font-weight: 200;
+}
+.about_me{
+    line-height: 30px;
+    max-width: 610px;
+}
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.animate-left {
+    animation: slideInLeft 1s ease-in-out forwards;
+}
+
+.animate-right {
+    animation: slideInRight 1s ease-in-out forwards;
 }
