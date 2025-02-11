@@ -4,7 +4,6 @@ import ArrowDownwardOutlinedIcon from '@mui/icons-material/ArrowDownwardOutlined
 import { Icon } from '@iconify/react/dist/iconify.js';
 import '../../IntroPage/Intro.css'
 import About from '../About';
-import { Link } from 'react-router-dom';
 
 export default function Main() {
     return (
@@ -32,7 +31,7 @@ export default function Main() {
                         </p>
                     </div>
                     <div className="flex justify-end">
-                        <a className="myProjects">
+                        <a className="myProjects" href='#'>
                             <img className="myProject_img" src={myProject} />
                             <span className="text-white absolute m-auto">
                                 <ArrowDownwardOutlinedIcon style={{ fontSize: "36px" }} />
